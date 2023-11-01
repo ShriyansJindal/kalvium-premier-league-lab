@@ -5,6 +5,10 @@ let currentTeam = "Manchester FC";
 let trophiesWon = 27;
 
 //Write your function here
+function createManager(managerName,managerAge,currentTeam,trophiesWon){
+  var manager = [managerName,managerAge,currentTeam,trophiesWon];
+  return manager;
+}
 
 // Don't edit the following code
 try {
@@ -22,7 +26,19 @@ try {
 var formation = [4, 4, 3];
 
 //write your function here
+function createFormation( [defender, midfield, forward]){
+  if(defender == undefined || midfield == undefined ){
+    return null;
+  }
+    var place = {
+      defender:defender,
+      midfield:midfield,
+      forward:forward
+    }
+    return place;
+    
 
+}
 // Dont edit the following code
 
 try {
@@ -32,17 +48,44 @@ try {
 }
 
 //Progression 3 - Filter players that debuted in ___ year
-
+function filterByDebut(year){
+  var playersDebut = players.filter(function(player) {
+    return player.debut == year;
+  });
+  return playersDebut;
+}
 //Progression 4 - Filter players that play at the position _______
-
+function filterByPosition(position){
+  var playersposition = players.filter(function(player) {
+    return player.position == position;
+  });
+  return playersposition;
+  
+}
 //Progression 5 - Filter players that have won ______ award
-
+function filterByAward(awardname){
+  let playerAward = [];
+  for(let i=0;i<players.length;i++){
+    for(let j=0;j<players[i].awards.length;j++){
+      if(players[i].awards[j].name == awardname){
+        playerAward.push(players[i])
+      }
+    }
+  }
+  return playerAward;
+}
 //Progression 6 - Filter players that won ______ award ____ times
+function filterByAwardxTimes(){
 
+}
 //Progression 7 - Filter players that won ______ award and belong to ______ country
+function filterByAwardxCountry(){
 
+}
 //Progression 8 - Filter players that won atleast ______ awards, belong to ______ team and are younger than ____
+function filterByNoOfAwardsxTeamxAge(){
 
+}
 //Progression 9 - Sort players in descending order of their age
 
 //Progression 10 - Sort players beloging to _____ team in descending order of awards won
